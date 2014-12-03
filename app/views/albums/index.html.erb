@@ -14,7 +14,7 @@
       <tr>
         <td><%= album.name %></td>
         <td><%= album.user %></td>
-        <td><%= link_to 'Show', album %></td>
+        <td><%= link_to 'Show', album_pictures_path(album) %></td>
         <td><%= link_to 'Edit', edit_album_path(album) %></td>
         <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

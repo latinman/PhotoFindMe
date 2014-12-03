@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'signups/new'
+  resource :signups
 
   resources :presences
 
