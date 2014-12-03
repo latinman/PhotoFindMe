@@ -13,7 +13,7 @@
       <tr>
         <td><%= picture.album %></td>
         <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Edit', edit_album_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to 'New Picture', new_album_picture_path %>
