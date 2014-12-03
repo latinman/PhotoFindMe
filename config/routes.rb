@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'sessions#new'
+  resource :sessions
+
   resource :signups
 
   resources :presences
