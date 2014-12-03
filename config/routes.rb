@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :presences
+
   resources :pictures
 
   resources :albums
