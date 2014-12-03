@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'signups/new'
+
   resources :presences
 
   resources :albums do
