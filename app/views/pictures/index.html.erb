@@ -11,7 +11,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.album %></td>
+        <td class= "thumbnail"><%= image_tag picture.photo %></td>
         <td><%= link_to 'Show', album_picture_path(@album,picture) %></td>
         <td><%= link_to 'Edit', edit_album_picture_path(@album,picture) %></td>
         <td><%= link_to 'Destroy', album_picture_path(@album,picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>

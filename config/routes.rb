@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
-  resource :sessions
+    devise_for :users
+    resources :presences
 
-  resource :signups
-
-  resources :presences
-
-  resources :albums do
+    resources :albums do
     resources :pictures
+    
   end
-
+  root 'albums#index'
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

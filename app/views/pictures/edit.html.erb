@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<%= image_tag @picture.photo.url %>
+
+<%= link_to 'Show', album_picture_path %> |
+<%= link_to 'Back', album_pictures_path %>

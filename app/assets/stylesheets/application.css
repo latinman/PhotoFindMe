@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.thumbnail{
+  width:100px;
+}
+
+img{
+  width:inherit;
+}
