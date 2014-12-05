@@ -18,8 +18,7 @@ class PicturesController < ApplicationController
       bill_image_2 = 'http://blogs-images.forbes.com/mfonobongnsehe/files/2014/09/bill-gates.jpg'
       walter_image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/4/005/06e/067/0d1e2e6.jpg'
       walter_image_2 = 'http://danabassett.com.s3.amazonaws.com/badatsports/EDITION7/IMG_8772.jpg'
-
-
+  
   # GET /pictures
   # GET /pictures.json
   def index
@@ -44,7 +43,8 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = @album.pictures.new(picture_params)
-
+    @client = Kairos::Client.new(app_id:  APP_ID,
+                          app_key: APP_KEY)
     respond_to do |format|
       if @picture.save
 
@@ -53,8 +53,6 @@ class PicturesController < ApplicationController
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
           )
-
-
 
         format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
@@ -98,9 +96,6 @@ class PicturesController < ApplicationController
   #       )
   #     end
       
-  def upload
-
-  end 
 
 
       # def recognize  
