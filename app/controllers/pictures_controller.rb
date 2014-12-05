@@ -6,8 +6,8 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
 
-      @APP_ID = 'cabd5bef'
-      @APP_KEY = '4cab7035e450a92e96fe6b446f429468'
+      APP_ID = 'cabd5bef'
+      APP_KEY = '4cab7035e450a92e96fe6b446f429468'
 
       brian_image = 'https://s3.amazonaws.com/kairos-media/team/Brain_Brackeen.jpeg'
       brian_image_2 = 'http://ourcitythoughts.org/cityth/wp-content/uploads/2014/04/Brian-Brackeen-Founder-of-Kairos-Banner.jpg'
@@ -47,6 +47,15 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
+
+      @client.enroll(url: @picture.photo,
+                subject_id: 'brian 1000',
+                gallery_name: @picture.album.name,
+                selector: 'SETPOSE'
+          )
+
+
+
         format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
@@ -80,8 +89,7 @@ class PicturesController < ApplicationController
     end
   end
 
-  #     @client = Kairos::Client.new(app_id:  APP_ID,
-  #                               app_key: APP_KEY)
+
   #     def enroll(pic,id,gal)
   #       @client.enroll(url: pic,
   #             subject_id: id,
@@ -90,15 +98,9 @@ class PicturesController < ApplicationController
   #       )
   #     end
       
-  # def upload
-  #   @client.enroll(url: pic,
-  #             subject_id: id,
-  #             gallery_name: gal,
-  #           selector: 'SETPOSE'
-  #       )
+  def upload
 
-
-  # end 
+  end 
 
 
       # def recognize  
@@ -143,4 +145,9 @@ class PicturesController < ApplicationController
     def upload_params
       params.require(:picture).permit(:url, :subject_id, :gallery_name)
     end 
+
+    def create_client
+      @client = Kairos::Client.new(app_id:  APP_ID, app_key: APP_KEY)
+    end 
+
 end

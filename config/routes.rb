@@ -2,12 +2,15 @@ Rails.application.routes.draw do
     devise_for :users
     resources :presences
 
-    resources :albums do
+  resources :albums do
     resources :pictures
-    
+      
   end
+
   root 'albums#index'
   resources :users
+
+  # get '/patients/:id', to: 'patients#show', as: 'patient'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
