@@ -41,3 +41,5 @@ gem 'paperclip'
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'kairos-api'
+

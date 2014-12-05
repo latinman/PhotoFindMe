@@ -1,6 +1,24 @@
+
+require 'kairos'
+
 class PicturesController < ApplicationController
   before_action :set_album
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+
+
+      @APP_ID = 'cabd5bef'
+      @APP_KEY = '4cab7035e450a92e96fe6b446f429468'
+
+      brian_image = 'https://s3.amazonaws.com/kairos-media/team/Brain_Brackeen.jpeg'
+      brian_image_2 = 'http://ourcitythoughts.org/cityth/wp-content/uploads/2014/04/Brian-Brackeen-Founder-of-Kairos-Banner.jpg'
+      brian_image_3 = 'http://mediad.publicbroadcasting.net/p/wlrn/files/201401/Screen_Shot_2014-01-22_at_5.38.27_PM.png'
+      brian_image_4 = 'http://miamiherald.typepad.com/.a/6a00d83451b26169e2017d3c1c3dbc970c-pi'
+      kobe_image = 'http://static.basket-infos.com/wp-content/uploads/2014/11/Kobe-Bryant.png'
+      bill_image = 'http://dash.coolsmartphone.com/wp-content/uploads/2013/05/gates_print.jpg'
+      bill_image_2 = 'http://blogs-images.forbes.com/mfonobongnsehe/files/2014/09/bill-gates.jpg'
+      walter_image = 'https://media.licdn.com/mpr/mpr/shrink_500_500/p/4/005/06e/067/0d1e2e6.jpg'
+      walter_image_2 = 'http://danabassett.com.s3.amazonaws.com/badatsports/EDITION7/IMG_8772.jpg'
+
 
   # GET /pictures
   # GET /pictures.json
@@ -62,6 +80,51 @@ class PicturesController < ApplicationController
     end
   end
 
+  #     @client = Kairos::Client.new(app_id:  APP_ID,
+  #                               app_key: APP_KEY)
+  #     def enroll(pic,id,gal)
+  #       @client.enroll(url: pic,
+  #             subject_id: id,
+  #             gallery_name: gal,
+  #           selector: 'SETPOSE'
+  #       )
+  #     end
+      
+  # def upload
+  #   @client.enroll(url: pic,
+  #             subject_id: id,
+  #             gallery_name: gal,
+  #           selector: 'SETPOSE'
+  #       )
+
+
+  # end 
+
+
+      # def recognize  
+      # @client.recognize( url: 'https://s3.amazonaws.com/kairos-media/team/Brain_Brackeen.jpeg',
+      #                  gallery_name: 'Photo Find Me1',
+      #                  threshold: '.70',
+      #                  max_num_results: '5',
+      #                  selector: 'SETPOSE'
+      #             )
+      # end
+     
+      # def detect
+      #   @client.detect(url: bill_image,
+      #               selector: 'FACE')
+      # end
+        # p client.gallery_list_all
+
+#         def 
+#        @ client.gallery_view(gallery_name: "Photo Find Me1")
+
+#       p client.gallery_remove_subject(gallery_name: 'Photo Find Me1', subject_id: 'Brian2')
+
+# end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -76,4 +139,8 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:photo)
     end
+
+    def upload_params
+      params.require(:picture).permit(:url, :subject_id, :gallery_name)
+    end 
 end
