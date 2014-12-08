@@ -47,16 +47,16 @@ class PicturesController < ApplicationController
                           app_key: APP_KEY)
     respond_to do |format|
       if @picture.save
-
+        format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
+        format.json { render :show, status: :created, location: @picture }
+ 
       @client.enroll(url: @picture.photo,
                 subject_id: 'brian 1000',
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
           )
 
-        format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
+             else
         format.html { render :new }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
