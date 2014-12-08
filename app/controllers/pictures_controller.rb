@@ -52,9 +52,9 @@ class PicturesController < ApplicationController
       
       # photoUrl = "https://18b0fd3a.ngrok.com" + @picture.photo.url
       puts "HEEEEEEEYYYYYYYYY"
-      p album_picture_path(@album, @picture)
+      p @picture.photo.url
       p @client
-        p @client.enroll(url: @picture.photo,
+        p @client.enroll(url: @picture.photo.url,
                 subject_id: 'Brian1001',
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
