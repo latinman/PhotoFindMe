@@ -51,18 +51,17 @@ class PicturesController < ApplicationController
         format.json { render :show, status: :created, location: @picture }
       
       puts "HEEEEEEEYYYYYYYYY"
-      puts "Piture url:" @picture.photo.url
-      puts "API INFO:" @client
-      puts "Album name:" @picture.album.name
+      p @picture.photo.url
+      p @client
+      p @picture.album.name
 
-      # p picture_up = "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url
+      p picture_up = "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url
         
-        # p @client.enroll(url: picture_up,
-        #         subject_id: 'Brian1001',
-        #         gallery_name: @picture.album.name,
-        #         selector: 'SETPOSE'
-        #   )
-
+        p @client.enroll(url: picture_up,
+                subject_id: 'Brian1001',
+                gallery_name: @picture.album.name,
+                selector: 'SETPOSE'
+          )
 
       else
         format.html { render :new }
