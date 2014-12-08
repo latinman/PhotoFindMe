@@ -49,14 +49,18 @@ class PicturesController < ApplicationController
       if @picture.save
         format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
- 
-      @client.enroll(url: @picture.photo,
-                subject_id: 'brian 1000',
-                gallery_name: @picture.album.name,
+      
+      # photoUrl = "https://18b0fd3a.ngrok.com" + @picture.photo.url
+
+      p @client
+        p @client.enroll(url: @picture.photo.url,
+                subject_id: 'Brian100',
+                gallery_name: "Photo Find Me1",
                 selector: 'SETPOSE'
           )
 
-             else
+
+      else
         format.html { render :new }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
