@@ -54,7 +54,7 @@ class PicturesController < ApplicationController
       puts "HEEEEEEEYYYYYYYYY"
       p @picture.photo.url
       p @client
-        p @client.enroll(url: @picture.photo.url,
+        p @client.enroll(url: "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url,
                 subject_id: 'Brian1001',
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
