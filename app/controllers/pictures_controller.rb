@@ -52,6 +52,7 @@ class PicturesController < ApplicationController
       
       # photoUrl = "https://18b0fd3a.ngrok.com" + @picture.photo.url
       puts "HEEEEEEEYYYYYYYYY"
+      p album_picture_path(@album, @picture)
       p @client
         p @client.enroll(url: @picture.photo.url,
                 subject_id: 'Brian1001',
