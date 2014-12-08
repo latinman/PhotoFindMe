@@ -54,8 +54,8 @@ class PicturesController < ApplicationController
 
       p @client
         p @client.enroll(url: @picture.photo.url,
-                subject_id: 'Brian100',
-                gallery_name: "Photo Find Me1",
+                subject_id: 'Brian1001',
+                gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
           )
 
