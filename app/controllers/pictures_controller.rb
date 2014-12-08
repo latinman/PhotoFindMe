@@ -51,7 +51,7 @@ class PicturesController < ApplicationController
         format.json { render :show, status: :created, location: @picture }
       
       # photoUrl = "https://18b0fd3a.ngrok.com" + @picture.photo.url
-
+      puts "HEEEEEEEYYYYYYYYY"
       p @client
         p @client.enroll(url: @picture.photo.url,
                 subject_id: 'Brian1001',
