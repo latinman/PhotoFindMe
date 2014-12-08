@@ -50,11 +50,14 @@ class PicturesController < ApplicationController
         format.html { redirect_to album_picture_path(@album, @picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       
-      # photoUrl = "https://18b0fd3a.ngrok.com" + @picture.photo.url
       puts "HEEEEEEEYYYYYYYYY"
-      p @picture.photo.url
-      p @client
-        p @client.enroll(url: "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url,
+      p "Piture url:" @picture.photo.url
+      p "API INFO:" @client
+      p "Album name:" @picture.album.name
+
+      p picture_up = "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url
+        
+        p @client.enroll(url: picture_up,
                 subject_id: 'Brian1001',
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
