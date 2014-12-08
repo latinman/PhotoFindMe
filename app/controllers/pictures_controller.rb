@@ -54,7 +54,7 @@ class PicturesController < ApplicationController
       puts "HEEEEEEEYYYYYYYYY"
       p album_picture_path(@album, @picture)
       p @client
-        p @client.enroll(url: @picture.photo.url,
+        p @client.enroll(url: @picture.photo,
                 subject_id: 'Brian1001',
                 gallery_name: @picture.album.name,
                 selector: 'SETPOSE'
