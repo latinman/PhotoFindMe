@@ -51,9 +51,9 @@ class PicturesController < ApplicationController
         format.json { render :show, status: :created, location: @picture }
       
       puts "HEEEEEEEYYYYYYYYY"
-      p "Piture url:" @picture.photo.url
-      p "API INFO:" @client
-      p "Album name:" @picture.album.name
+      puts "Piture url:" @picture.photo.url
+      puts "API INFO:" @client
+      puts "Album name:" @picture.album.name
 
       # p picture_up = "https://mysterious-ocean-1513.herokuapp.com" + @picture.photo.url
         
